@@ -1,0 +1,18 @@
+#简单统计与筛选
+
+#diff) 比较相邻两个对象是增加了还是减少了
+status = np.sign(np,.diff(quotesdf.close))  #sign取他们的符号
+status[np.where(status==1.)].size
+
+#排序
+tempdf =djidf.sort_values(by='lasttrade',ascending =False)  #ascending默认为True正序排列
+
+
+计算近一年每个月的股票开盘天数
+listtemp =[]
+for i in range(len(quotesdf)):
+	temp = time.strptime(quotesdf.index[i],"%y-%m-%d")  #strptime() 将字符串格式化为time格式
+	listtemp.append(temp.tm_mon)   #代表月份的成员
+tempdf =quotesdf.copy()
+tempdf['month']=listtemp  #新建month这一列
+print(tempdf['month'].value_counts())  #计算开盘天数

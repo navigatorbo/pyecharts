@@ -1,0 +1,21 @@
+#数据选择
+
+#时间的切片
+#quotesdf[起始时间:终止时间]
+quotesdf['2017-05-01':'2017-05-05']
+
+#行列选择(loc)
+#loc[行,列]  表示标签
+#不填时，默认为全部，可以用切片，也可以用列表直接列举出要显示的数据列或行
+djidf.loc[:,['code','lasttrade']]
+#单个值选择(at)
+djidf.at[1,'lasttrade']    djidf.loc[1,'lasttrade']
+
+#iloc 和iat 表示物理位置
+#表示1-5行，0,2列
+djidf.iloc[1:6,[0,2]]
+
+#条件选择
+#quotesdf[(条件1)&(条件2)&...]
+quotesdf[(quotesdf.index>='2017-03-01')&(quotesdf.index<='2017-03-31')&(quotesdf.close>=80)]
+ 

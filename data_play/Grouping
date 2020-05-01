@@ -1,0 +1,7 @@
+#分组
+统计近一年每个月的股票开盘天数
+x = tempdf.groupby('month').count()
+
+#统计近一年每个月的总成交量
+tempdf.groupby('month').sum().volume
+tempdf.groupby('month').volume.sum()  #更有效
